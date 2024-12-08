@@ -1,8 +1,7 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:news_app/screens/web_view_screen.dart'; // Assuming you have this screen.
+import '../screens/web_view_screen.dart'; // Assuming you have this screen.
 
 class ViewNewsDetailScreen extends StatefulWidget {
   final Map article;
