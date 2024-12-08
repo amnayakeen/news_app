@@ -13,7 +13,7 @@ class ViewNewsListScreen extends StatefulWidget {
 }
 
 class _NewsListScreenState extends State<ViewNewsListScreen> {
-  final String apiKey = 'e3aab4b972ca46b3b68c3d6f191d1ea1'; // Replace with your API Key.
+  final String apiKey = 'e3aab4b972ca46b3b68c3d6f191d1ea1'; 
   bool isLoading = true;
   List articles = [];
   List filteredArticles = [];
@@ -39,7 +39,7 @@ class _NewsListScreenState extends State<ViewNewsListScreen> {
                 article['description'] != null &&
                 article['urlToImage'] != null;
           }).toList();
-          filteredArticles = articles; // Initially, show all articles
+          filteredArticles = articles; 
           isLoading = false;
         });
       } else {
@@ -56,7 +56,7 @@ class _NewsListScreenState extends State<ViewNewsListScreen> {
     }
   }
 
-  // Function to filter articles based on search query
+  
   void filterSearchResults(String query) {
     if (query.isNotEmpty) {
       setState(() {
@@ -71,12 +71,12 @@ class _NewsListScreenState extends State<ViewNewsListScreen> {
       });
     } else {
       setState(() {
-        filteredArticles = articles; // Show all articles if no query
+        filteredArticles = articles; 
       });
     }
   }
 
-  // Function to handle the search functionality
+  
   void initiateSearch() {
     showSearch(
       context: context,
@@ -93,7 +93,7 @@ class _NewsListScreenState extends State<ViewNewsListScreen> {
           actions: [
             IconButton(
               icon: const Icon(Icons.search),
-              onPressed: initiateSearch, // Open search delegate
+              onPressed: initiateSearch, 
             ),
           ],
         ),
@@ -107,7 +107,7 @@ class _NewsListScreenState extends State<ViewNewsListScreen> {
           itemCount: filteredArticles.length,
           itemBuilder: (context, index) {
             final article = filteredArticles[index];
-            final imageUrl = article['urlToImage']; // Cover image URL.
+            final imageUrl = article['urlToImage']; 
             final title = article['title'] ?? 'No Title';
             final description = article['description'] ?? 'No Description';
 
@@ -158,8 +158,8 @@ class NewsSearchDelegate extends SearchDelegate {
       IconButton(
         icon: const Icon(Icons.clear),
         onPressed: () {
-          query = ''; // Clear the search query
-          onSearch(query); // Update the filtered list
+          query = ''; 
+          onSearch(query); 
         },
       ),
     ];
@@ -190,7 +190,7 @@ class NewsSearchDelegate extends SearchDelegate {
       itemCount: results.length,
       itemBuilder: (context, index) {
         final article = results[index];
-        final imageUrl = article['urlToImage']; // Cover image URL.
+        final imageUrl = article['urlToImage']; 
         final title = article['title'] ?? 'No Title';
         final description = article['description'] ?? 'No Description';
 
@@ -240,7 +240,7 @@ class NewsSearchDelegate extends SearchDelegate {
       itemCount: suggestions.length,
       itemBuilder: (context, index) {
         final article = suggestions[index];
-        final imageUrl = article['urlToImage']; // Cover image URL.
+        final imageUrl = article['urlToImage']; 
         final title = article['title'] ?? 'No Title';
         final description = article['description'] ?? 'No Description';
 
