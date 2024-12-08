@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../screens/web_view_screen.dart'; // Assuming you have this screen.
+import '../screens/web_view_screen.dart'; 
 
 class ViewNewsDetailScreen extends StatefulWidget {
   final Map article;
@@ -37,7 +37,7 @@ class _ViewNewsDetailScreenState extends State<ViewNewsDetailScreen> {
     final prefs = await SharedPreferences.getInstance();
     String? savedComments = prefs.getString(articleId);
     if (savedComments != null) {
-      // Parse the comments JSON and load them into the list
+      
       List<dynamic> decodedComments = json.decode(savedComments);
       setState(() {
         _comments = List<Map<String, String>>.from(decodedComments.map((comment) => {
@@ -101,7 +101,7 @@ class _ViewNewsDetailScreenState extends State<ViewNewsDetailScreen> {
     );
   }
 
-  // Delete a comment
+
   void _deleteComment(int index) {
     setState(() {
       _comments.removeAt(index);
@@ -109,7 +109,7 @@ class _ViewNewsDetailScreenState extends State<ViewNewsDetailScreen> {
     });
   }
 
-  // Navigate to WebViewScreen for full article
+  // navigate to WebViewScreen for full article
   void _navigateToWebView(BuildContext context, String url, String title) {
     Navigator.push(
       context,
